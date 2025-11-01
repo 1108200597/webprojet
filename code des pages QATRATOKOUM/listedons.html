@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qatratokoum - Liste des dons</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background: #f4f4f4;
+        }
+        .sidebar {
+            width: 250px;
+            background: #ffffff;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar ul li i {
+            margin-right: 10px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #f1f1f1;
+        }
+        .valid {
+            color: green;
+            font-weight: bold;
+        }
+        .pending {
+            color: orange;
+            font-weight: bold;
+        }
+        .generate-btn {
+            background: #00bfff;
+            color: white;
+            padding: 7px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .generate-btn:hover {
+            background: #009acd;
+        }
+        .search-box {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background: white;
+        }
+        .search-box input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="icon_qatratokoum.png" alt="Qatratokoum" width="40" style="margin-bottom: 20px;">
+        <ul>
+            <li><i class="fas fa-home"></i> Accueil</li>
+            <li><i class="fas fa-user"></i> Gestion des Donneurs</li>
+            <li><i class="fas fa-hand-holding-heart"></i> Gestion des Dons</li>
+            <li><i class="fas fa-vial"></i> Gestion des Analyses</li>
+            <li><i class="fas fa-chart-bar"></i> Rapports</li>
+            <li><i class="fas fa-cog"></i> Paramètres & Sécurité</li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Liste des dons</h2>
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Entrez le numéro du don">
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numéro de don</th>
+                        <th>Date</th>
+                        <th>Statut</th>
+                        <th>CIN du Donneur</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="don-list">
+                    <tr>
+                        <td>N° 001245</td>
+                        <td>12/03/2025</td>
+                        <td class="valid">Validé</td>
+                        <td>SH12356</td>
+                        <td><button class="generate-btn">Générer Reçu</button></td>
+                    </tr>
+                    <tr>
+                        <td>N° 001246</td>
+                        <td>12/03/2025</td>
+                        <td class="pending">En attente</td>
+                        <td>SH12357</td>
+                        <td><button class="generate-btn">Générer Reçu</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('.generate-btn').click(function() {
+                alert('Reçu généré pour ce don !');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier Donneur - Qatratokoum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    primary-color: #0d6efd;
+danger-color: #dc3545;
+background-color: #f2f9fc;
+sidebar-bg: #f8f9fa;
+font-family: 'Poppins', sans-serif;
+
+body {
+    font-family: $font-family;
+    background-color: $background-color;
+}
+
+.sidebar {
+    width: 250px;
+    background: sidebar-bg;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+}
+
+.content {
+    margin-left: 270px;
+    padding: 30px;
+}
+
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: $danger-color;
+    color: white;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+</style>
+<body>
+    <div class="sidebar">
+        <h4>Qatratokoum</h4>
+        <ul>
+            <li><a href="#">🏠 Accueil</a></li>
+            <li><a href="#">🩸 Gestion des Donneurs</a></li>
+            <li><a href="#">➕ Ajouter un Donneur</a></li>
+            <li><a href="#">📋 Gestion des Dons</a></li>
+            <li><a href="#">📑 Rapports</a></li>
+            <li><a href="#">⚙️ Paramètres & Sécurité</a></li>
+            <li><a href="#">👤 Mon Profil</a></li>
+        </ul>
+    </div>
+    <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i></a>
+    <div class="content">
+        <h2>Modifier les informations du donneur</h2>
+        <form id="editDonorForm" class="form-container">
+            <label>Carte d'identité nationale</label>
+            <input type="text" id="cin" required>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Nom</label>
+                    <input type="text" id="nom" required>
+                </div>
+                <div class="col-md-6">
+                    <label>Prénom</label>
+                    <input type="text" id="prenom" required>
+                </div>
+            </div>
+            <label>Adresse</label>
+            <input type="text" id="adresse">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Téléphone</label>
+                    <input type="text" id="telephone" required>
+                </div>
+                <div class="col-md-6">
+                    <label>Poids</label>
+                    <input type="text" id="poids">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Date de naissance</label>
+                    <input type="date" id="date_naissance" required>
+                </div>
+                <div class="col-md-6">
+                    <label>Sexe</label>
+                    <select id="sexe">
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                    </select>
+                </div>
+            </div>
+            <label>Groupe sanguin</label>
+            <input type="text" id="groupe_sanguin">
+            <button type="submit" class="btn btn-danger">Enregistrer les modifications</button>
+            <button type="button" class="btn btn-secondary">Annuler</button>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#editDonorForm').on('submit', function(event) {
+                event.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: 'update_donor.php',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        alert('Modifications enregistrées avec succès');
+                    },
+                    error: function() {
+                        alert('Une erreur est survenue');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

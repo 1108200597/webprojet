@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Donneur</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        /* Styles globaux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            background: #f9f9f9;
+        }
+
+        /* Barre latérale */
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h4 {
+            color: #d0021b;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background: #d0021b;
+            color: white;
+        }
+
+        /* Contenu principal */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="number"],
+        .form-group input[type="date"],
+        .form-group select {
+            width: 48%;
+        }
+
+        .form-group input:first-child {
+            margin-right: 4%;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #d0021b;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Profil en haut à droite */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .profile .name {
+            font-weight: 600;
+        }
+
+        .profile .role {
+            font-size: 12px;
+            color: #d0021b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre latérale -->
+    <div class="sidebar">
+        <h4>Qatratokoum</h4>
+        <a href="#" class="active">🏠 Accueil</a>
+        <a href="#">🩸 Gestion des Donneurs</a>
+        <a href="#">➕ Ajouter un Donneur</a>
+        <a href="#">📋 Gestion des Dons</a>
+        <a href="#">📑 Rapports</a>
+        <a href="#">⚙️ Paramètres & Sécurité</a>
+        <a href="#">👤 Mon Profil</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="profile">
+                <img src="https://via.placeholder.com/40" alt="Profil">
+                <div>
+                    <div class="name">Ahmed El Amrani</div>
+                    <div class="role">Superviseur du centre Al Taawon</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h2>Ajouter un Donneur</h2>
+            <form id="donorForm">
+                <div class="form-group">
+                    <label>Carte d'identité nationale</label>
+                    <input type="text" id="cin" required>
+                </div>
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" id="nom" required>
+                    <label>Prenom</label>
+                    <input type="text" id="prenom" placeholder="Prénom" required>
+                </div>
+                <div class="form-group">
+                    <label>Adresse</label>
+                    <input type="text" id="adresse" required>
+                </div>
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <input type="tel" id="telephone" required>
+                    <input type="number" id="poids" placeholder="Poids (kg)" required>
+                </div>
+                <div class="form-group">
+                    <label>Date de naissance</label>
+                    <input type="date" id="dateNaissance" required>
+                    <select id="sexe" required>
+                        <option value="">Sexe</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                    </select>
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="reset" class="btn btn-secondary">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#donorForm").submit(function(event) {
+                event.preventDefault();
+
+                let inputs = $("input, select");
+                let isValid = true;
+
+                inputs.each(function() {
+                    if ($(this).val().trim() === "") {
+                        isValid = false;
+                    }
+                });
+
+                if (!isValid) {
+                    alert("Veuillez remplir tous les champs.");
+                    return;
+                }
+
+                alert("Donneur enregistré avec succès !");
+                $("#donorForm")[0].reset();
+            });
+        });
+    </script>
+
+</body>
+</html>

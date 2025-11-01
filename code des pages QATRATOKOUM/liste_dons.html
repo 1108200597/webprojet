@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qatratokoum - Liste des dons</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #f8f9fa;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        .valid {
+            color: green;
+            font-weight: bold;
+        }
+        .pending {
+            color: orange;
+            font-weight: bold;
+        }
+        .generate-btn {
+            background: #00bfff;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="icon_qatratokoum.png" alt="Qatratokoum" width="40" style="margin-bottom: 20px;">
+        <ul>
+            <li>Accueil</li>
+            <li>Gestion des Donneurs</li>
+            <li>Gestion des Dons</li>
+            <li>Gestion des Analyses</li>
+            <li>Rapports</li>
+            <li>Paramètres & Sécurité</li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Liste des dons</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numéro de don</th>
+                        <th>Date</th>
+                        <th>Statut</th>
+                        <th>CIN du Donneur</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>N° 001245</td>
+                        <td>12/03/2025</td>
+                        <td class="valid">Validé</td>
+                        <td>SH12356</td>
+                        <td><button class="generate-btn">Générer Reçu</button></td>
+                    </tr>
+                    <tr>
+                        <td>N° 001245</td>
+                        <td>12/03/2025</td>
+                        <td class="pending">En attente</td>
+                        <td>SH12356</td>
+                        <td><button class="generate-btn">Générer Reçu</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

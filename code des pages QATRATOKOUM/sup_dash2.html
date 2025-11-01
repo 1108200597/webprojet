@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qatratokoum - Tableau de Bord</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f2f9fc;
+        }
+        .sidebar {
+            width: 250px;
+            background: #f8f9fa;
+            height: 100vh;
+            padding: 20px;
+            position: fixed;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .sidebar a:hover, .sidebar .active {
+            background: #e9ecef;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 30px;
+        }
+        .card {
+            border: none;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .icon {
+            background: #0d6efd;
+            padding: 15px;
+            color: white;
+            border-radius: 5px;
+        }
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h4>Qatratokoum</h4>
+        <a href="#" class="active">🏠 Accueil</a>
+        <a href="#">🩸 Gestion des Donneurs</a>
+        <a href="#">➕ Ajouter un Donneur</a>
+        <a href="#">📋 Gestion des Dons</a>
+        <a href="#">📑 Rapports</a>
+        <a href="#">⚙️ Paramètres & Sécurité</a>
+        <a href="#">👤 Mon Profil</a>
+    </div>
+    <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i></a>
+    <div class="content">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Tableau de bord</h2>
+            <div>Ahmed El Amrani | <small>Superviseur du centre Al Taawon</small></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm d-flex flex-row align-items-center">
+                    <div class="icon me-3"><i class="fas fa-hand-holding-medical"></i></div>
+                    <div>
+                        <h3>45</h3>
+                        <p>Nombre total de dons aujourd’hui</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm d-flex flex-row align-items-center">
+                    <div class="icon me-3"><i class="fas fa-sync-alt"></i></div>
+                    <div>
+                        <h3>05</h3>
+                        <p>Nombre d’analyses en attente</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm d-flex flex-row align-items-center">
+                    <div class="icon me-3"><i class="fas fa-users"></i></div>
+                    <div>
+                        <h3>95</h3>
+                        <p>Nombre de donneurs enregistrés</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
